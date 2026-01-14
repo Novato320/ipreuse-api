@@ -10,7 +10,13 @@ Repositório do projeto de Residência em Tecnologia da Informação e Comunica�
 - 
 
 ### BackEnd:
-- Python
+- Python (.venv)
+- **FastAPI** ( pip install "fastapi[standard]" )
+    - Possui diversas dependencias que são automaticamente instaladas.
+    - Instalado ( fastapi dev main.py )
+- **supabase** ( pip install supabase )
+    - Também possui diversas dependencias
+    - ERROR: Failed building wheel for pyroaring (parece que precisamos de C++)
 - 
 - 
 - 
