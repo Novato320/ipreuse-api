@@ -11,7 +11,7 @@ def consultar_banco():
         .execute()
     )
 
-    print(response)
+    return response
 
 
 # Não testei, mas acredito que não vai funcionar
@@ -22,6 +22,4 @@ def escrever_banco():
     .execute()
     )
 
-    print(response)
-
-consultar_banco()
+    return response

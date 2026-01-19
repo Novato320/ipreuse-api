@@ -20,5 +20,5 @@ Repositório do projeto de Residência em Tecnologia da Informação e Comunica�
     - ERROR: Failed building wheel for pyroaring (parece que precisamos de C++)
     - Sim, precisa do https://visualstudio.microsoft.com/pt-br/visual-cpp-build-tools/
 - 
-- 
+- ***Problema:*** Obanco funciona, mas o fastapi não gosta dele. Precisamos descobrir como fazer ele aceitar o banco.
 - 

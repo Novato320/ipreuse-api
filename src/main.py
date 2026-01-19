@@ -1,5 +1,7 @@
 from typing import Union
 
+#from banco import consultar_banco
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -14,6 +16,7 @@ class Item(BaseModel):
 
 @app.get("/")
 def read_root():
+    #return consultar_banco()
     return {"Hello": "World"}
 
 
