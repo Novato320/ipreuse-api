@@ -1,6 +1,20 @@
 from typing import Union
 
 #from banco import consultar_banco
+from supabase import create_client, Client
+
+url: str = "https://hkdmjetyhvepudotkcjr.supabase.co"
+key: str = "sb_publishable_GoINKSbl3Y_5J7N5lXhBWA_8RQfkJ6T"
+supabase: Client = create_client(url, key)
+
+def consultar_banco():
+    response = (
+        supabase.table("users")
+        .select("*")
+        .execute()
+    )
+
+    return response
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -16,7 +30,7 @@ class Item(BaseModel):
 
 @app.get("/")
 def read_root():
-    #return consultar_banco()
+    return consultar_banco()
     return {"Hello": "World"}
 
 
