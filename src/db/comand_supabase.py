@@ -25,10 +25,3 @@ def consultar_banco():
         .execute()
     )
     return response
-
-
-
-
-if __name__ == "__main__":
-    init_supabase(url, key)
-    print(consultar_banco())
