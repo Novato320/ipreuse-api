@@ -1,7 +1,7 @@
 import os
 
 from fastapi import FastAPI
-from .routers import users, items
+from .routers import login,catalogo,testes
 from .database.comand_supabase import init_supabase, consultar_banco
 from dotenv import load_dotenv
 
@@ -12,9 +12,14 @@ key: str = os.environ.get("SUPABASE_KEY")
 
 app = FastAPI()
 
-app.include_router(users.router)
-app.include_router(items.router)
+app.include_router(login.router)
+app.include_router(catalogo.router)
 
+
+app.include_router(testes.router)
+
+
+"""
 @app.on_startup()
 def teste():
     pass
@@ -26,6 +31,7 @@ def teste():
 @app.lifespan()
 def teste():
     pass
+"""
 
 @app.get("/banco")
 def banco():
