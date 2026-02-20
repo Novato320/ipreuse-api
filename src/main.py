@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv() # uma vezes executado adiciona os valores para todo o projeto
 
 from .database.supabase import init_supabase, consultar_banco_users
 
