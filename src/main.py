@@ -1,27 +1,26 @@
-import os
-
 from fastapi import FastAPI
-from .routers import login,catalogo,testes
-from .database.supabase import init_supabase, consultar_banco_users
 from dotenv import load_dotenv
-
 load_dotenv()
 
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
+from .database.supabase import init_supabase, consultar_banco_users
 
 app = FastAPI()
 
-app.include_router(login.router)
-app.include_router(catalogo.router)
-
-
-app.include_router(testes.router)
-
-
 @app.on_event("startup")
 def teste():
-    init_supabase(url, key)
+    init_supabase()
+
+from .routers import catalogo_routes, login_routes,testes_routes
+
+app.include_router(login_routes.router)
+app.include_router(catalogo_routes.router)
+
+
+app.include_router(testes_routes.router)
+
+@app.get("/banco")
+def banco():
+    return consultar_banco_users()
 
 """
 @app.on_event()
@@ -32,7 +31,3 @@ def teste():
 def teste():
     pass
 """
-
-@app.get("/banco")
-def banco():
-    return consultar_banco_users()

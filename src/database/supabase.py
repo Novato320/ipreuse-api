@@ -1,16 +1,15 @@
-from supabase import create_client, Client
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+from supabase import create_client, Client
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 
-#supabase: Client | None = None
+supabase: Client | None = None
 
+supabase = create_client(url, key)
 
-def init_supabase(url: str, key: str):
+def init_supabase(url: str = url, key: str = key):
     global supabase
     supabase = create_client(url, key)
 

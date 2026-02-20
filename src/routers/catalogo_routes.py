@@ -1,4 +1,5 @@
 from ..database.supabase import consultar_banco
+from ..controllers import catalogo_controller
 
 from fastapi import APIRouter
 
